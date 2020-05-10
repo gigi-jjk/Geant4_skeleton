@@ -3,17 +3,25 @@ Sekelton for geant4 example
 Si tratta di uno scheletro molto semplificato tratto da TestEm4 
 
 Note sull'utilizzo dei file sorgenti
+
   --> ActionInitialization iniziallizza tutti i moduli (RunAction, SteppingAction, TrackingAction...) 
-              SetUserAction(new RunAction);
+  
+              	SetUserAction(new RunAction);
                     --> Su RunAction crei le ntuple per root usando i metodi dell'Analysis manager
-              PrimaryGeneratorAction *primGen = new PrimaryGeneratorAction;
+  
+  	 	PrimaryGeneratorAction *primGen = new PrimaryGeneratorAction;
                     --> PrimaryGeneratorAction da riempire con i dettagli del particle gun
-              SetUserAction(primGen);
+              
+	      SetUserAction(primGen);
+	      
               EventAction* eventAction = new EventAction();
                     --> EventAction ad ogni evento cancella le variabili e riempie le ntuple
+		    
               SetUserAction(eventAction);
+	      
               SetUserAction(new SteppingAction(eventAction,primGen));
                     --> Stepping Action per studiare il passaggio delle particelle negli strati di materiale
+		    
               SetUserAction(new TrackingAction );
                     --> Usare tracking action per accedere ad esempio all' enetrgia cinetica associata alle tracce
     
